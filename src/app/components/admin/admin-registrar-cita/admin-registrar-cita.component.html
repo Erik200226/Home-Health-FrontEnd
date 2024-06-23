@@ -1,0 +1,39 @@
+<div class="admin-container">
+    <h2>Registrar Cita</h2>
+    <form [formGroup]="form" (ngSubmit)="registrarCita()">
+      <mat-form-field>
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" [min]="minDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Turno</mat-label>
+        <mat-select formControlName="turno">
+          <mat-option *ngFor="let turno of turnos" [value]="turno">{{ turno }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>DNI del Paciente</mat-label>
+        <input matInput formControlName="dniPaciente">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Médico</mat-label>
+        <mat-select (selectionChange)="onMedicoChange($event)">
+          <mat-option *ngFor="let medico of medicos" [value]="medico.id">{{ medico.nombre }} {{ medico.apellido }} - {{ medico.especialidad }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>ID del Médico</mat-label>
+        <input matInput formControlName="idMedico" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio" readonly>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Registrar</button>
+      <button mat-raised-button color="accent" routerLink="/admin/ver-citas">Cancelar</button>
+
+    </form>
+  </div>
+  

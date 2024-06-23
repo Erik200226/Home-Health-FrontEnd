@@ -1,0 +1,37 @@
+<div class="registrar-cita-container">
+    <h2>Registrar Cita</h2>
+    <form [formGroup]="form" (ngSubmit)="registrarCita()">
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input id="fecha" formControlName="fecha" type="date" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="turno">Turno</label>
+        <select id="turno" formControlName="turno" class="form-control">
+          <option *ngFor="let turno of turnos" [value]="turno">{{ turno }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dniPaciente">DNI del Paciente</label>
+        <input id="dniPaciente" formControlName="dniPaciente" type="text" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="medicoNombre">Nombre del Médico</label>
+        <input id="medicoNombre" [value]="medicoNombre" type="text" class="form-control" disabled />
+      </div>
+      <div class="form-group">
+        <label for="medicoEspecialidad">Especialidad del Médico</label>
+        <input id="medicoEspecialidad" [value]="medicoEspecialidad" type="text" class="form-control" disabled />
+      </div>
+      <div class="form-group" style="display: none;">
+        <label for="idMedico">ID del Médico</label>
+        <input id="idMedico" formControlName="idMedico" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input id="precio" formControlName="precio" type="number" class="form-control"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Cita</button>
+    </form>
+  </div>
+  

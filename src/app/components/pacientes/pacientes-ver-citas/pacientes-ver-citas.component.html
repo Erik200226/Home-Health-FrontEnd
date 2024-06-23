@@ -1,0 +1,104 @@
+<div class="citas-container">
+  <h2>Mis Citas</h2>
+  <div class="actions-container">
+    <mat-form-field>
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Nombre del paciente, DNI o ID">
+    </mat-form-field>
+  </div>
+  <form [formGroup]="filterForm">
+    <div class="filter-container">
+      <div class="form-group">
+        <label for="startDate">Buscar Por Fecha</label>
+        <input id="startDate" formControlName="startDate" type="date" matInput>
+      </div>
+      <div class="form-group">
+        <input id="endDate" formControlName="endDate" type="date" matInput>
+      </div>
+      <div class="form-group">
+        <button mat-raised-button color="primary" (click)="buscarPorFechas()">Buscar</button>
+        <button mat-raised-button color="accent" (click)="limpiarFiltros()">Limpiar</button>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Turno</mat-label>
+          <mat-select formControlName="turno" (selectionChange)="filtrarPorTurno($event.value)">
+            <mat-option *ngFor="let turno of turnos" [value]="turno">{{ turno }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Especialidad</mat-label>
+          <mat-select formControlName="especialidad" (selectionChange)="filtrarPorEspecialidad($event.value)">
+            <mat-option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.fecha | date}}</td>
+    </ng-container>
+
+    <!-- Turno Column -->
+    <ng-container matColumnDef="turno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Turno</th>
+      <td mat-cell *matCellDef="let element">{{element.turno}}</td>
+    </ng-container>
+
+    <!-- DNI Paciente Column -->
+    <ng-container matColumnDef="dniPaciente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DNI Paciente</th>
+      <td mat-cell *matCellDef="let element">{{element.dniPaciente}}</td>
+    </ng-container>
+
+    <!-- Nombre Médico Column -->
+    <ng-container matColumnDef="medicoNombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Médico</th>
+      <td mat-cell *matCellDef="let element">{{element.nombreMedico}}</td>
+    </ng-container>
+
+    <!-- Especialidad Médico Column -->
+    <ng-container matColumnDef="medicoEspecialidad">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Especialidad</th>
+      <td mat-cell *matCellDef="let element">{{element.especialidadMedico}}</td>
+    </ng-container>
+
+    <!-- Hospital Médico Column -->
+    <ng-container matColumnDef="medicoHospital">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hospital</th>
+      <td mat-cell *matCellDef="let element">{{element.hospitalMedico}}</td>
+    </ng-container>
+
+    <!-- Precio Column -->
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+      <td mat-cell *matCellDef="let element">{{element.precio | currency}}</td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="cancelarCita(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

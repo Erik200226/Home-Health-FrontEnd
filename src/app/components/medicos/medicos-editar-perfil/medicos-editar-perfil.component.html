@@ -1,0 +1,34 @@
+<div *ngIf="medico" class="perfil-container">
+    <h2>Editar Perfil</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input id="apellido" formControlName="apellido" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="especialidad">Especialidad</label>
+        <input id="especialidad" formControlName="especialidad" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="hospital">Hospital</label>
+        <input id="hospital" formControlName="hospital" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" formControlName="username" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+  <div *ngIf="!medico">
+    <p>No se encontró información del médico.</p>
+  </div>
+  

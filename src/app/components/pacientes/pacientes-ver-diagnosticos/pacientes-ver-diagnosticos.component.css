@@ -1,0 +1,31 @@
+/* paciente-ver-diagnostico.component.css */
+.diagnostico-card {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  mat-card-title {
+    text-align: center;
+  }
+  
+  .mat-table-responsive {
+    overflow-x: auto;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .mat-header-cell, .mat-cell {
+      padding: 8px 4px;
+    }
+    .mat-header-cell {
+      font-size: 12px;
+    }
+    .mat-cell {
+      font-size: 11px;
+    }
+  }
+  

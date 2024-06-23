@@ -1,0 +1,32 @@
+<div class="admin-container">
+    <h2>Modificar Médico</h2>
+    <form [formGroup]="form" (ngSubmit)="modificarMedico()">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="apellido">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Especialidad</mat-label>
+        <input matInput formControlName="especialidad">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Hospital</mat-label>
+        <input matInput formControlName="hospital">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Modificar</button>
+      <button mat-raised-button color="accent" routerLink="/admin/ver-medicos">Cancelar</button>
+    </form>
+  </div>
+  

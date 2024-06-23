@@ -1,0 +1,24 @@
+.admin-container {
+    padding: 20px;
+  }
+  
+  .actions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  button {
+    color: blue;
+  }
+  

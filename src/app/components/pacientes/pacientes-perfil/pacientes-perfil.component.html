@@ -1,0 +1,15 @@
+<div *ngIf="paciente$ | async as paciente; else noPaciente" class="perfil-container">
+  <div class="perfil-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Profile Picture" class="perfil-picture">
+  </div>
+  <div class="perfil-body">
+    <p><strong>Nombre:</strong> {{ paciente.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ paciente.apellido }}</p>
+    <p><strong>DNI:</strong> {{ paciente.dni }}</p>
+    <p><strong>Fecha Nacimiento:</strong> {{ paciente.fechaNacimiento | date }}</p>
+    <button class="edit-profile-btn" [routerLink]="['/paciente/editar-perfil']">Edit Profile</button>
+  </div>
+</div>
+<ng-template #noPaciente>
+  <p>No se encontró información del paciente.</p>
+</ng-template>

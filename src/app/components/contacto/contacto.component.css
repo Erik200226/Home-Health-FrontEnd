@@ -1,0 +1,43 @@
+/* Otros estilos de la página */
+
+.contact {
+  position: relative;
+  border-radius: 50px;
+  padding: 20px;
+  background-color: #27b4bb;
+  text-align: center;
+  top: 50px;       
+  left: 60px;
+}
+.home{
+  display:flex;
+  align-items:center;
+  min-height: 92.7vh;
+  background: url(https://familydoctor.org/wp-content/uploads/2018/02/41808433_l.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.contact h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.contact-method {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-method img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.contact-method p {
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+/* Otros estilos de la página */

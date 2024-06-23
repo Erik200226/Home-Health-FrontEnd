@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Home Health</span>
+    <span class="spacer"></span>
+    <button mat-button [routerLink]="['/']">Home</button>
+    <button mat-button [routerLink]="['/sobre-nosotros']">Sobre Nosotros</button>
+    <button mat-button [routerLink]="['/contacto']">Contacto</button>
+    <button mat-button [routerLink]="['/servicios']">Servicios</button>
+    <span class="spacer"></span>
+    <ng-container *ngIf="isAuthenticated(); else loginButton">
+      <button mat-button (click)="close()">Logout</button>
+    </ng-container>
+    <ng-template #loginButton>
+      <button mat-button [routerLink]="['/login']">Login</button>
+    </ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>

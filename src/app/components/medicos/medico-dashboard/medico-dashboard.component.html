@@ -1,0 +1,12 @@
+<div *ngIf="medico" class="dashboard-container">
+  <h2>Bienvenido, {{ medico.nombre }} {{ medico.apellido }}</h2>
+  <div class="dashboard-options">
+    <button mat-raised-button color="primary" (click)="navigateTo('/medico/perfil')">Perfil</button>
+    <button mat-raised-button color="accent" (click)="navigateTo('/medico/ver-citas')">Ver Citas</button>
+    <button mat-raised-button color="warn" (click)="navigateTo('/medico/ver-diagnosticos')">Ver Diagnósticos</button>
+    <button mat-raised-button color="primary" (click)="navigateTo('/medico/ver-pacientes')">Registrar Diagnóstico</button>
+  </div>
+</div>
+<div *ngIf="!medico">
+  <p>No se encontró información del médico.</p>
+</div>

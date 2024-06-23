@@ -1,0 +1,62 @@
+<!-- paciente-ver-diagnostico.component.html -->
+<mat-card class="diagnostico-card">
+    <mat-card-title>Diagnóstico</mat-card-title>
+    <mat-card-content>
+      <div *ngIf="diagnosticos.data && diagnosticos.data.length">
+        <div class="mat-elevation-z8 mat-table-responsive">
+          <table mat-table [dataSource]="diagnosticos" matSort>
+  
+            <!-- Fecha Column -->
+            <ng-container matColumnDef="fechaCita">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.fechaCita | date }} </td>
+            </ng-container>
+  
+            <!-- Nombre Paciente Column -->
+            <ng-container matColumnDef="nombrePaciente">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Paciente </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.nombrePaciente }} </td>
+            </ng-container>
+  
+            <!-- DNI Paciente Column -->
+            <ng-container matColumnDef="dniPaciente">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI Paciente </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.dniPaciente }} </td>
+            </ng-container>
+  
+            <!-- Nombre Medico Column -->
+            <ng-container matColumnDef="nombreMedico">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Médico </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.nombreMedico }} </td>
+            </ng-container>
+  
+            <!-- Descripcion Column -->
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.descripcion }} </td>
+            </ng-container>
+  
+            <!-- Receta Column -->
+            <ng-container matColumnDef="receta">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Receta </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.receta }} </td>
+            </ng-container>
+  
+            <!-- Tratamiento Column -->
+            <ng-container matColumnDef="tratamiento">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Tratamiento </th>
+              <td mat-cell *matCellDef="let diagnostico"> {{ diagnostico.tratamiento }} </td>
+            </ng-container>
+  
+            <!-- Header and Row Declarations -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+      <div *ngIf="!diagnosticos.data || !diagnosticos.data.length">
+        <p>No se encontraron diagnósticos.</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,17 @@
+<div *ngIf="medico$ | async as medico; else noMedico" class="perfil-container">
+    <div class="perfil-header">
+      <img src="https://pbs.twimg.com/media/EX1XRQGXgAArHrq.jpg" alt="Profile Picture" class="perfil-picture">
+    </div>
+    <div class="perfil-body">
+      <p><strong>Nombre:</strong> {{ medico.nombre }}</p>
+      <p><strong>Apellido:</strong> {{ medico.apellido }}</p>
+      <p><strong>Especialidad:</strong> {{ medico.especialidad }}</p>
+      <p><strong>Hospital:</strong> {{ medico.hospital }}</p>
+      <p><strong>Username:</strong> {{ medico.username }}</p>
+      <button class="edit-profile-btn" [routerLink]="['/medico/editar-perfil']">Edit Profile</button>
+    </div>
+  </div>
+  <ng-template #noMedico>
+    <p>No se encontró información del médico.</p>
+  </ng-template>
+  

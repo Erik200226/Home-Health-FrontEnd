@@ -1,0 +1,10 @@
+<div class="medicos-container">
+    <mat-card *ngFor="let medico of medicos" (click)="registrarCita(medico)" class="medico-card">
+      <mat-card-title>{{ medico.nombre }} {{ medico.apellido }}</mat-card-title>
+      <mat-card-content>
+        <p><strong>Especialidad:</strong> {{ medico.especialidad }}</p>
+        <p><strong>Hospital:</strong> {{ medico.hospital }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

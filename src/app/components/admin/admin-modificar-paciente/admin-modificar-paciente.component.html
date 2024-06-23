@@ -1,0 +1,35 @@
+<div class="admin-container">
+    <h2>Modificar Paciente</h2>
+    <form [formGroup]="form" (ngSubmit)="modificarPaciente()">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="apellido">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="dni">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Modificar</button>
+      <button mat-raised-button color="accent" routerLink="/admin/ver-pacientes">Cancelar</button>
+
+    </form>
+  </div>
+  

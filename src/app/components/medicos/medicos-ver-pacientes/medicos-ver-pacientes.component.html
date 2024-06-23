@@ -1,0 +1,11 @@
+<div class="pacientes-container">
+  <h2>Pacientes con Citas</h2>
+  <mat-card *ngFor="let cita of citas" (click)="registrarDiagnostico(cita)" class="paciente-card">
+    <mat-card-title>{{ cita.nombrePaciente }}</mat-card-title>
+    <mat-card-content>
+      <p><strong>DNI:</strong> {{ cita.dniPaciente }}</p>
+      <p><strong>Fecha:</strong> {{ cita.fecha | date }}</p>
+      <p><strong>Turno:</strong> {{ cita.turno }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,31 @@
+.pacientes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.paciente-card {
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.paciente-card:hover {
+  transform: scale(1.05);
+}
+
+.mat-card-title {
+  font-weight: bold;
+}
+
+.mat-card-content p {
+  margin: 5px 0;
+}

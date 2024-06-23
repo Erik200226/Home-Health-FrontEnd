@@ -1,0 +1,63 @@
+<div class="admin-container">
+  <h2>Lista de Pacientes</h2>
+  <div class="actions-container">
+    <mat-form-field>
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Nombre, Apellido o DNI">
+    </mat-form-field>
+    <button mat-raised-button color="primary" routerLink="/admin/registrar-paciente">Registrar Paciente</button>
+    <button mat-raised-button color="accent" routerLink="/admin/dashboard">Volver al Dashboard</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+      <td mat-cell *matCellDef="let element">{{element.apellido}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dni">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DNI</th>
+      <td mat-cell *matCellDef="let element">{{element.dni}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaNacimiento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Nacimiento</th>
+      <td mat-cell *matCellDef="let element">{{element.fechaNacimiento | date}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="enabled">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="cambiarEstadoPaciente(element.id, !element.enabled)">
+          {{ element.enabled ? 'Deshabilitar' : 'Habilitar' }}
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" [routerLink]="['/admin/modificar-paciente', element.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="confirmarEliminarPaciente(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 40]" showFirstLastButtons></mat-paginator>
+</div>

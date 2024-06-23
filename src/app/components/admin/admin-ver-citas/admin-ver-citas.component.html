@@ -1,0 +1,76 @@
+<div class="admin-container">
+    <h2>Lista de Citas</h2>
+    <div class="actions-container">
+      <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Nombre del paciente, DNI o ID">
+      </mat-form-field>
+      <button mat-raised-button color="primary" routerLink="/admin/registrar-cita">Registrar Cita</button>
+      <button mat-raised-button color="accent" routerLink="/admin/dashboard">Volver al Dashboard</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Columnas de la tabla -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{element.fecha | date}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="turno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Turno</th>
+        <td mat-cell *matCellDef="let element">{{element.turno}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombrePaciente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Paciente</th>
+        <td mat-cell *matCellDef="let element">{{element.nombrePaciente}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="dniPaciente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DNI Paciente</th>
+        <td mat-cell *matCellDef="let element">{{element.dniPaciente}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombreMedico">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Médico</th>
+        <td mat-cell *matCellDef="let element">{{element.nombreMedico}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="especialidadMedico">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Especialidad</th>
+        <td mat-cell *matCellDef="let element">{{element.especialidadMedico}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="hospitalMedico">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Hospital</th>
+        <td mat-cell *matCellDef="let element">{{element.hospitalMedico}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+        <td mat-cell *matCellDef="let element">{{element.precio | currency}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" [routerLink]="['/admin/modificar-cita', element.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="confirmarEliminarCita(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  

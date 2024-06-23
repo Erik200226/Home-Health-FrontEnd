@@ -1,0 +1,34 @@
+<div class="admin-container">
+    <h2>Modificar Diagnóstico</h2>
+    <form [formGroup]="form" (ngSubmit)="modificarDiagnostico()">
+      <mat-form-field>
+        <mat-label>Cita</mat-label>
+        <mat-select formControlName="idCita" (selectionChange)="onCitaChange($event)">
+          <mat-option *ngFor="let cita of citas" [value]="cita.id">{{ cita.fecha | date }} - {{ cita.dniPaciente }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Fecha</mat-label>
+        <input matInput formControlName="fecha" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>DNI del Paciente</mat-label>
+        <input matInput formControlName="dniPaciente" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcion">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Receta</mat-label>
+        <input matInput formControlName="receta">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tratamiento</mat-label>
+        <input matInput formControlName="tratamiento">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Modificar</button>
+      <button mat-raised-button color="accent" routerLink="/admin/ver-diagnosticos">Cancelar</button>
+    </form>
+  </div>
+  

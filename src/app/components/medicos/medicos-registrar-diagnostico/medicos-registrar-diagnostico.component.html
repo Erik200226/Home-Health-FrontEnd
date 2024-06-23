@@ -1,0 +1,30 @@
+<div class="registrar-diagnostico-container">
+  <h2>Registrar Diagnóstico</h2>
+  <form [formGroup]="form" (ngSubmit)="registrarDiagnostico()">
+    <mat-form-field>
+      <mat-label>Fecha</mat-label>
+      <input matInput formControlName="fecha" readonly>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>DNI del Paciente</mat-label>
+      <input matInput formControlName="dniPaciente" readonly>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Receta</mat-label>
+      <input matInput formControlName="receta">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tratamiento</mat-label>
+      <input matInput formControlName="tratamiento">
+    </mat-form-field>
+    <div class="form-group" style="display: none;">
+      <label for="idCita">ID de la Cita</label>
+      <input id="idCita" formControlName="idCita" type="text" class="form-control" />
+    </div>
+    <button mat-raised-button color="primary" type="submit">Registrar Diagnóstico</button>
+  </form>
+</div>

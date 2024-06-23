@@ -1,0 +1,59 @@
+.spacer {
+  flex: 1 1 ;
+}
+.icons img{
+  height: 4rem;
+  margin-right: 0rem;
+}
+/* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Toolbar styles */
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  background-color: #0fb1c9; /* Primary color */
+  color: rgb(255, 255, 255);
+  padding: 0 20px;
+}
+
+mat-toolbar-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+button[mat-button] {
+  color: white;
+  margin: 0 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+button[mat-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  mat-toolbar-row {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .icons img {
+      height: 30px;
+  }
+
+  button[mat-button] {
+      width: 100%;
+      text-align: left;
+      padding: 10px 20px;
+      margin: 5px 0;
+  }
+}

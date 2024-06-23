@@ -1,0 +1,13 @@
+<div *ngIf="paciente" class="dashboard-container">
+    <h2>Bienvenido, {{ paciente.nombre }} {{ paciente.apellido }}</h2>
+    <div class="dashboard-options">
+      <button (click)="navigateTo('/paciente/perfil')">Perfil</button>
+      <button (click)="navigateTo('/paciente/ver-medicos-disponibles')">Registrar Cita</button>
+      <button (click)="navigateTo('/paciente/ver-citas')">Ver Citas</button>
+      <button (click)="navigateTo('/paciente/ver-diagnosticos')">Diagnósticos</button>
+    </div>
+  </div>
+  <div *ngIf="!paciente">
+    <p>No se encontró información del paciente.</p>
+  </div>
+  
